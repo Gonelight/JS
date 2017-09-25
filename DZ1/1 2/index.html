@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <script src="script.js"></script>
+    <script>
+      window.onload = function() {
+        var menuItem1 = new MenuItem('/', 'Главная', ["<a href=#>Раздел 1г</a>", "<a href=#>Раздел 2г</a>", "<a href=#>Раздел 3г</a>"]);
+        var menuItem2 = new MenuItem('/catalog', 'Каталог');
+        var menuItem3 = new MenuItem('/blog', 'Блог', ["<a href=#>Раздел 1б</a>", "<a href=#>Раздел 2б</a>"]);
+
+        var menu = new Menu('menuID', 'menu', [menuItem1, menuItem2, menuItem3]); 
+
+        document.write(menu.render());
+        //menu.remove();
+
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <script src="script.js"></script>
+    <script>
+      window.onload = function() {
+        var order1 = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_CHEESE); //берем размер [50, 20] начинку [10, 20]
+        var order2 = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_SALAD); //берем размер [50, 20] начинку [20, 5]
+        var order3 = new Hamburger(Hamburger.SIZE_LARGE, Hamburger.STUFFING_POTATO); //[100, 40]; 15 10
+
+        //game of toppings
+        order1.addTopping(Hamburger.TOPPING_MAYO); //[20, 5];
+        order1.addTopping(Hamburger.TOPPING_SPICE); //[15, 0];        
+        order1.removeTopping(Hamburger.TOPPING_MAYO); //[20, 5];
+        order2.addTopping(Hamburger.TOPPING_MAYO);// [20, 5];
+        order2.addTopping(Hamburger.TOPPING_SPICE);//[15, 0];
+        order3.addTopping(Hamburger.TOPPING_SPICE); //[15, 0];
+        order3.addTopping(Hamburger.TOPPING_MAYO); //[20, 5];
+        order3.removeTopping(Hamburger.TOPPING_SPICE); //[15, 0];
+
+        var name = "Order 1";
+        document.write(order1.count(name));
+        name = "Order 2";
+        document.write(order2.count(name));
+        name = "Order 3";
+        document.write(order3.count(name));
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
