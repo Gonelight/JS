@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <style>
+    </style>
+    <script>
+      window.onload = function() {      
+        var xhr;         
+        var answer = []; 
+        var result;       
+        
+        if (window.XMLHttpRequest) {
+          xhr = new XMLHttpRequest();
+        }
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState != 4) {
+            return false;            
+          }
+
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var answer = JSON.parse(xhr.responseText);
+            console.log (answer.result);   
+
+            switch (answer.result) {
+              case "success":
+               alert ("Success");
+               break;
+              case "error": //в этом примере всегда так 
+               alert ("Error");
+               break;
+            }
+          }          
+        }
+        
+        xhr.open("GET", "http://10.65.5.135:8080/success.json");
+        xhr.send(null);     
+
+        xhr.open("GET", "http://10.65.5.135:8080/error.json");
+        xhr.send(null);      
+      }
+
+    </script>
+  </head>
+  <body>
+  
+  </body>
+</html>

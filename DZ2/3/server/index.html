@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <style>
+    </style>
+    <script src="script.js"></script>
+    <script>
+      window.onload = function() {
+      
+        var xhr;         
+        var answer = [];        
+          if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+          }
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            answer = JSON.parse(xhr.responseText);
+
+          console.log("0" + answer);
+          useAnswer(answer);    
+          }             
+          // console.log("0" + answer);// почему, если здесь пишу, выдает 0, 0 а потом только 0+объект?             
+        }
+
+        xhr.open("GET", "http://10.65.5.135:8080/json.txt");
+        xhr.send(null);       
+
+        function useAnswer(answer) {
+          var images = [];     
+          console.log("1" + answer);
+             
+          for (var i in answer) { 
+          images[i] = new Image(answer[i].href, answer[i].bhref, answer[i].name);
+          }          
+       
+          console.log(images); 
+          var gallery = new Gallery('galleryID', 'galleryClass', images);
+          document.write(gallery.render());
+
+          var imagesHTML = document.getElementsByClassName("image");
+          console.log("1" + imagesHTML); //почему ничего не выдает?
+          for (var i in imagesHTML) {
+            imagesHTML[i].style.height = "150px";//пишет Cannot set property 'height' of undefined, но работает
+          }
+        }    
+      }
+
+    </script>
+  </head>
+  <body>
+  
+  </body>
+</html>

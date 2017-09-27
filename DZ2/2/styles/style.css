@@ -1,0 +1,48 @@
+* {
+      margin: 0;
+      padding: 0;
+}
+
+
+
+#menuID {
+  border: 1px solid black;
+  width: 800px;
+  height: 40px;
+  padding: 10px;
+  box-sizing: border-box;
+
+}
+
+.menu-item {
+	list-style: none;
+	margin-bottom: 10px;
+}
+
+.menuSubItem {
+	list-style: none;
+	border: 1px solid black;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.menuItemBlock {
+	float: left;
+	margin-right: 30px;
+	width: 120px;
+}
+
+.menuSubItem {
+	display: none;
+}
+
+a:hover{ 	
+ 	color: blue;
+}
+
+.menuItemBlock:hover .menuSubItem{ /*это бы не работало, если бы не высота*/
+ 	display: block;
+}

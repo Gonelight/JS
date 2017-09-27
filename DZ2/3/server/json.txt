@@ -1,0 +1,27 @@
+[
+	{
+		"href": "img/small/1small.png",
+		"bhref": "img/1.jpg",
+		"name": "Alps1"
+	},
+	{
+		"href": "img/small/2small.png",
+		"bhref": "img/2.jpg",
+		"name": "Alps2"
+	},
+	{
+		"href": "img/small/3small.png",
+		"bhref": "img/3.jpg",
+		"name": "Alps3"
+	},
+	{
+		"href": "img/small/4small.png",
+		"bhref": "img/4.jpg",
+		"name": "Alps4"
+	},
+	{
+		"href": "img/small/5small.png",
+		"bhref": "img/5.jpg",
+		"name": "Alps5"
+	}
+]

@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <style>
+    </style>
+    <script>
+      window.onload = function() {      
+        var xhr;         
+        var answer = []; 
+        var result;       
+        
+        if (window.XMLHttpRequest) {
+          xhr = new XMLHttpRequest();
+        }
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            switch (xhr.status) {
+              case 200:
+                result = "success";
+                success();
+                break;
+              default:
+                result = "error";
+                error();
+            }          
+          }
+          console.log (result);
+        }          
+
+        function success () {
+          var answer = JSON.parse(xhr.responseText);              
+          useAnswer(answer);
+        }
+        
+        function error () {
+          alert("Error");
+        }          
+
+        xhr.open("GET", "http://10.65.5.135:8080/json.txt");
+        xhr.send(null);       
+
+        function useAnswer(answer) {
+         alert("OK");
+        }    
+      }
+
+    </script>
+  </head>
+  <body>
+  
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<meta>
+<head>
+  <meta charset="utf-8">
+
+    <script src="script.js"></script>
+
+    <script>
+      window.onload = function() {
+        var main = new MenuItem('/', 'Главная');
+        var catalog = new MenuItem('/catalog', 'Каталог', 
+          ["<a href=#>Группа товаров 1</a>", "<a href=#>Группа товаров 2</a>", "<a href=#>Группа товаров 3</a>"]);
+        var promo = new MenuItem('/promo', 'Промоакции');
+        var contacts = new MenuItem('/contacts', 'Контакты');
+        var profile = new MenuItem('/lcab', 'Личный кабинет', ["<a href=#>История заказов</a>", "<a href=#>Ваши отзывы</a>", "<a href=#>Настройки профиля</a>"]);
+
+        var menu = new Menu('menuID', 'menu', [main, catalog, promo, contacts, profile]); 
+
+        menu.render(); 
+
+      }
+    </script>
+      <link href="styles/style.css" rel="stylesheet">
+  </head>
+  <body>
+  <div id="container"> <!--это-->
+    <ul id="menuID" class="menu"></ul>
+  </div>
+  </body>
+</html>
