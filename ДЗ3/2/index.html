@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <script>
+    function verify() {
+      var text = document.getElementById("text").innerText;
+
+      //var newtext = text.replace(/^\'(\w+\s?)+\'$/gm, '\"$1\"'); не работает
+      var newtext = text.replace(/^\'|\'$/gm, '\"'); //работает
+      var newtext = text.replace(/\B\'|\'\B/gm, '\"'); //работает
+      alert(newtext);
+}
+    </script>
+  </head>
+  <body>
+  <div id="text">
+    Lorem ipsum dolor sit 11111 aren't amet, consectetur adipisicing elit.<br> 
+    'Illo deleniti sunt veritatis doloribus odit suscipit, labore sequi quam excepturi minus, laboriosam.'<br> 
+    'Excepturi, veritatis iusto. Obcaecati eligendi dolores, repudiandae cupiditate dsunt enim quis beatae totam aperiam quaerat?'<br> 
+    Quibusdam dolore autem mollitia non earum neque voluptates explicabo exercitationem aliquid, perferendis libero laboriosam cumque similique deleniti fugiat corrupti sapiente pariatur est. Eius nisi laboriosam, tenetur quas at soluta maxime alias 11111 aren't possimus vitae laborum ipsa iusto. Enim cumque tempora ut laboriosam eos rem quas autem, dolor aliquid deleniti repudiandae dicta officia veniam laborum harum optio aperiam atque consequatur beatae voluptate sequi.<br> 
+    'Delectus quaerat deleniti natus, dicta soluta in quisquam, cum vero excepturi harum, atque sunt nihil?'<br> 
+    Expedita vero cupiditate molestiae tempora, delec'tus magnam quibusdam recusandae 11111 aren't officia, veritatis praesen'tium totam. Dolore ad dolores digniss'imos vel officiis, itaque eaque ea suscipit eius pariatur odio sint, fuga dolorum perspiciatis voluptatem, voluptas cor'poris! Tempora,1111 aren't nesci'unt ad voluptatum repe'llendus.
+  </div>
+  <p><input type="submit" value="Конвертировать" onclick="verify()"></p>
+  </body>
+</html>

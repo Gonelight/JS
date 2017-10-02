@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Cute shop</title>
+</head>
+<script>
+	function verify() {
+		var name = document.getElementById("name");
+		var nameCheck = /[А-ЯA-Z]/i;
+		if (!nameCheck.test(name.value) && name.value != "") {
+			name.style.borderColor = "red";
+			alert("Имя должно содержать только буквы");
+		} 
+
+		var tel = document.getElementById("tel");
+		var telCheck = /^\+\d\(\d{3}\)\d{3}-\d{4}$/;
+		if (!telCheck.test(tel.value) && tel.value != "") {
+			tel.style.borderColor = "red";
+			alert("Неверный формат телефонного номера");
+		} 
+
+		var mail = document.getElementById("mail");
+		var mailCheck = /^([a-z]{6}\@[a-z]{4}\.[a-z]{2}|[a-z]{2}.[a-z]{4}\@[a-z]{4}\.[a-z]{2}|[a-z]{2}\-[a-z]{4}\@[a-z]{4}\.[a-z]{2})$/; //в начале можно написать 7 знаков вместо 6. ?
+		if (!mailCheck.test(mail.value) && mail.value != "") {
+			mail.style.borderColor = "red";
+			alert("Неверный формат email");
+		} 
+	}
+
+</script>
+<body>
+	<form action="#" method="get">
+		<fieldset>
+			<legend>Обратная связь</legend>
+			<p>
+				<label for="name">Ваше имя:</label><br><br>
+				<input type="text" id="name" name=userName>
+			</p>
+			<p>
+				<label for="tel">Ваш телефон:</label><br><br>
+				<input type="text" id="tel" name=phone placeholder="+7(000)000-0000">
+			</p>
+			<p>
+				<label for="mail">Ваш email:</label><br><br>
+				<input type="email" id="mail" name=userMail><br>
+			</p>		
+			<p>
+				Сообщение<br><br>				
+				<textarea name=messageText placeholder="Текст"></textarea>		
+			</p>			
+			<p><input type="submit" value="Отправить письмо" onclick="verify()"></p>		
+		</fieldset>
+	</form>
+	<br>	
+</body>
+</html>
