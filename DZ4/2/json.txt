@@ -1,0 +1,26 @@
+[
+	{
+		"city": "Moscow"
+	},
+	{
+		"city": "Sanct-Petersburg"
+	},
+	{
+		"city": "Tver"
+	},
+	{
+		"city": "Kaliningrad"
+	},
+	{
+		"city": "Anapa"
+	},
+	{
+		"city": "Chelyabinsk"
+	},
+	{
+		"city": "Korolev"
+	},
+	{
+		"city": "Astana"
+	}
+]

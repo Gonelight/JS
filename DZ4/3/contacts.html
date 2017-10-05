@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Cute shop</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	function verify() {
+		var name = document.getElementById("name");
+		var nameCheck = /[А-ЯA-Z]/i;
+		if (!nameCheck.test(name.value) && name.value != "") {
+			name.style.borderColor = "red";
+			alert("Имя должно содержать только буквы");
+		} 
+
+		var tel = document.getElementById("tel");
+		var telCheck = /^\+\d\(\d{3}\)\d{3}-\d{4}$/;
+		if (!telCheck.test(tel.value) && tel.value != "") {
+			tel.style.borderColor = "red";
+			alert("Неверный формат телефонного номера");
+		} 
+
+		var mail = document.getElementById("mail");
+		var mailCheck = /^([a-z]{6}\@[a-z]{4}\.[a-z]{2}|[a-z]{2}.[a-z]{4}\@[a-z]{4}\.[a-z]{2}|[a-z]{2}\-[a-z]{4}\@[a-z]{4}\.[a-z]{2})$/;
+		if (!mailCheck.test(mail.value) && mail.value != "") {
+			mail.style.borderColor = "red";
+			alert("Неверный формат email");
+		} 
+	}
+
+	$(document).ready(function(){
+		$("#city").on("keyup", function(){
+			var regExp = /\w{3,}/;
+			if (regExp.test($("#city").val())) {
+				var str = $("#city").val();
+				getCities(str);
+			}
+		});
+
+		function getCities(str) {
+			$.ajax({
+				url: 'http://192.168.1.4:8080/json.txt',
+				dataType: "json",
+				type: "GET",
+				success: function (data) {					
+					verifyCities(data, str);
+				}
+			});
+
+			function verifyCities (data, str) {
+				var strRe = new RegExp("(" + str + ")", "i");
+				for (var i in data) {
+					if (strRe.test(data[i].city)) {
+						console.log(data[i].city);
+					}
+				}
+			}
+	}
+});
+
+
+</script>
+<body>
+	<form action="#" method="get">
+		<fieldset>
+			<legend>Обратная связь</legend>
+			<p>
+				<label for="name">Ваше имя:</label><br><br>
+				<input type="text" id="name" name=userName>
+			</p>
+			<p>
+				<label for="tel">Ваш телефон:</label><br><br>
+				<input type="text" id="tel" name=phone placeholder="+7(000)000-0000">
+			</p>
+			<p>
+				<label for="mail">Ваш email:</label><br><br>
+				<input type="email" id="mail" name=userMail><br>
+			</p>
+			<p>
+				<label for="city">Ваш город:</label><br><br>
+				<textarea name=cityText placeholder="Введите первые 3 буквы" id="city"></textarea>
+			</p>		
+			<p>
+				Сообщение<br><br>				
+				<textarea name=messageText placeholder="Текст"></textarea>		
+			</p>			
+			<p><input type="submit" value="Отправить письмо" onclick="verify()"></p>		
+		</fieldset>
+	</form>
+	<br>	
+</body>
+</html>

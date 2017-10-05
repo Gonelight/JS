@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		.tabs {
+			width: 398px;
+			height: 200px;
+			border: 1px solid black;			
+		}
+
+		.menu {
+			width: inherit;
+			height: 20px;
+		}
+
+		.tab {
+			width: 98px;
+			height: inherit;
+			float: left;
+			margin-right: 2px;
+			padding-left: 25px;
+			box-sizing: border-box;
+			background: black;
+		}
+
+		.tab:hover {
+			background: gray;
+		}
+
+		.tab a {
+			text-decoration: none;
+			color: white;
+		}
+
+		.activeHead {
+			border-bottom: 0;
+			background: white;	
+			color: black;	
+		}
+
+		.activeHead a{
+			color: black;	
+		}
+
+		.activeHead:hover {
+			background: white;		
+		}
+
+		.tab4head {
+			margin-right: 0;
+		}
+
+		.tab1, .tab2,.tab3,.tab4 {
+			display: none;
+		}
+
+		.active {
+			display: block;
+		}
+
+	</style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	/*$(document).ready(function(){
+		$(".tab1head").on("click", function(){
+			$(this).addClass("activeHead");
+			$(".tab1").addClass("active");
+			$(".tab2, .tab3, .tab4").removeClass("active");
+			$(".tab2head, .tab3head, .tab4head").removeClass("activeHead");
+		});
+		$(".tab2head").on("click", function(){
+			$(this).addClass("activeHead");
+			$(".tab2").addClass("active");
+			//$(".tab2").animate({ opacity: 'show' }, "slow");
+			$(".tab1, .tab3, .tab4").removeClass("active");
+			$(".tab1head, .tab3head, .tab4head").removeClass("activeHead");
+		});
+		$(".tab3head").on("click", function(){
+			$(this).addClass("activeHead");
+			$(".tab3").addClass("active");
+			$(".tab1, .tab2, .tab4").removeClass("active");
+			$(".tab1head, .tab2head, .tab4head").removeClass("activeHead");
+		});
+		$(".tab4head").on("click", function(){
+			$(this).addClass("activeHead");
+			$(".tab4").addClass("active");
+			$(".tab1, .tab2, .tab3").removeClass("active");
+			$(".tab1head, .tab2head, .tab3head").removeClass("activeHead");
+		});
+	});*/
+
+	$(document).ready(function(){
+		$(".tab1head").on("click", function(){
+			$(this).addClass("activeHead");
+			$(".tab1").animate({ opacity: 'show' }, "slow");
+			$(".tab2, .tab3, .tab4").css("display", 'none');
+			$(".tab2head, .tab3head, .tab4head").removeClass("activeHead");
+		});
+		$(".tab2head").on("click", function(){
+			$(this).addClass("activeHead");
+			$(".tab2").animate({ opacity: 'show' }, "slow");
+			$(".tab1, .tab3, .tab4").css("display", 'none');
+			$(".tab1head, .tab3head, .tab4head").removeClass("activeHead");
+		});
+		$(".tab3head").on("click", function(){
+			$(this).addClass("activeHead");
+			$(".tab3").animate({ opacity: 'show' }, "slow");
+			$(".tab2, .tab1, .tab4").css("display", 'none');
+			$(".tab2head, .tab1head, .tab4head").removeClass("activeHead");
+		});
+		$(".tab4head").on("click", function(){
+			$(this).addClass("activeHead");
+			$(".tab4").animate({ opacity: 'show' }, "slow");
+			$(".tab2, .tab3, .tab1").css("opacity", 'hide'); //Вопрос 1
+			$(".tab2head, .tab3head, .tab1head").removeClass("activeHead");
+		});
+	});
+
+</script>
+<body>
+	<div class="tabs">
+		<div class="menu">
+			<div class="tab tab1head activeHead">
+				<a href="#">1 tab</a>
+			</div>
+			<div class="tab tab2head">
+				<a href="#">2 tab</a>
+			</div>
+			<div class="tab tab3head">
+				<a href="#">3 tab</a>
+			</div>
+			<div class="tab tab4head">
+				<a href="#">4 tab</a>
+			</div>
+		</div>
+		<div class= "tab1 active">
+			11111Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, quidem, ipsum. Nesciunt minima, porro totam. Facere porro nam ea illo eius sequi ratione nihil tenetur, accusamus inventore maxime. Quaerat, consequuntur.
+		</div>
+		<div class= "tab2">
+			222222Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, quidem, ipsum. Nesciunt minima, porro totam. Facere porro nam ea illo eius sequi ratione nihil tenetur, accusamus inventore maxime. Quaerat, consequuntur.
+		</div>
+		<div class= "tab3">
+			333333Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, quidem, ipsum. Nesciunt minima, porro totam. Facere porro nam ea illo eius sequi ratione nihil tenetur, accusamus inventore maxime. Quaerat, consequuntur.
+		</div>
+		<div class= "tab4">
+			444444Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, quidem, ipsum. Nesciunt minima, porro totam. Facere porro nam ea illo eius sequi ratione nihil tenetur, accusamus inventore maxime. Quaerat, consequuntur.
+		</div>		
+	</div>
+</body>
+</html>
