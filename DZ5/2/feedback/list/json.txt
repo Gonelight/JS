@@ -1,0 +1,16 @@
+{
+ "comments" : [
+  {
+	"id_comment" : 1,
+	"text": "Message 1"
+  },
+  {
+	"id_comment" : 2,
+	"text": "Message 2"
+  },
+  {
+	"id_comment" : 3,
+	"text": "Message 3"
+  }
+  ]
+}

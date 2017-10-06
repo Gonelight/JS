@@ -1,0 +1,21 @@
+{
+ "result" : 1,
+ "items" : [
+  {
+	"id_product" : 111,
+	"price" : 100
+  },
+  {
+	"id_product" : 222,
+	"price" : 200
+  },
+  {
+	"id_product" : 333,
+	"price" : 300
+  },
+  {
+	"id_product" : 444,
+	"price" : 400
+  }
+  ]
+}

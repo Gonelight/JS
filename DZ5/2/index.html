@@ -1,0 +1,48 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="jscript.js"></script>
+  <script>
+
+    $(document).ready(function(){
+      var opinion = new Opinion();      
+
+      $("#add").on("click", function() {
+        var text = $('#text').val();
+        opinion.add(111, text);
+      });
+
+      $("#submit").on("click", function() {
+        var id = $('#submitField').val();
+        opinion.submit(id);
+      });
+
+      $("#delete").on("click", function() {
+        var id = $('#deleteField').val();
+        opinion.delete(id);
+      });
+    });
+
+  </script>
+</head>
+<body>
+  <p>Введите ваш отзыв<br><br>       
+    <textarea name=messageText id="text"></textarea>
+  </p>
+  <input type="button" value="Отправить отзыв" id="add">
+
+  <p>Введите ID отзыва, который хотите одобрить<br><br>    
+    <textarea name=messageText id="submitField"></textarea>
+  </p>   
+  <input id="submit" type="button" value="Одобрить отзыв" />
+
+  <p>Введите ID отзыва, который хотите удалить<br><br>     
+    <textarea name=messageText id="deleteField"></textarea>
+  </p>   
+  <input id="delete" type="button" value="Удалить отзыв"/>
+  <div id="opinions">
+  <p>Текущие отзывы: </p>
+</div>
+</div>
+</body>
+</html>
