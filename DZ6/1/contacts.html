@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Cute shop</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<script>
+	function verify() {
+		var name = document.getElementById("name");
+		var nameCheck = /[А-ЯA-Z]/i;
+		if (!nameCheck.test(name.value) && name.value != "") {
+			name.style.borderColor = "red";
+			$( "#name" ).addClass( "error" );
+			$( "#name" ).effect( "bounce", { times: 3 }, {distance: 1}, "slow" ); //как то не стабильно рабтает		
+			$( "#dialog" ).dialog( "open" );
+			$( "#dialog" ).html("Красные поля заполнены неверно");
+
+		} 
+
+		var tel = document.getElementById("tel"); //тоже не стабильно
+		var telCheck = /^\+\d\(\d{3}\)\d{3}-\d{4}$/;
+		if (!telCheck.test(tel.value) && tel.value != "") {			
+			tel.style.borderColor = "red";
+			$( "#tel" ).addClass( "error" );
+			$( "#tel" ).effect( "bounce", { times: 3 }, {distance: 1}, "slow" );
+			$( "#dialog" ).dialog( "open" );
+			$( "#dialog" ).html("Красные поля заполнены неверно");
+		} 
+
+		var mail = document.getElementById("mail");
+		var mailCheck = /^([a-z]{6}\@[a-z]{4}\.[a-z]{2}|[a-z]{2}.[a-z]{4}\@[a-z]{4}\.[a-z]{2}|[a-z]{2}\-[a-z]{4}\@[a-z]{4}\.[a-z]{2})$/; 
+		if (!mailCheck.test(mail.value) && mail.value != "") {
+			mail.style.borderColor = "red";
+			$( "#mail" ).addClass( "error" );
+			$( "#mail" ).effect( "bounce", { times: 3 }, {distance: 1}, "slow" );
+			$( "#dialog" ).dialog( "open" );
+			$( "#dialog" ).html("Красные поля заполнены неверно");
+		} 
+	}
+
+	$(document).ready(function(){
+		$( "#birthday" ).datepicker();		
+		$( "#dialog" ).dialog({
+			autoOpen: false,
+			title: "Возникла ошибка",				
+			buttons: [
+				{
+					text: "OK",
+					click: function() {
+						$( this ).dialog( "close" );				
+					}
+				}
+				]
+		});
+	});
+
+</script>
+<body>
+	<form action="#" method="get">
+		<fieldset>
+			<legend>Обратная связь</legend>
+			<p>
+				<label for="name">Ваше имя:</label><br><br>
+				<input type="text" id="name" name=userName>				
+			</p>
+			<p>
+				<label for="birthday">Введите ДР:</label><br><br>
+				<input type="text" id="birthday" name=userBirthday>
+			</p>
+			<p>
+				<label for="tel">Ваш телефон:</label><br><br>
+				<input type="text" id="tel" name=phone placeholder="+7(000)000-0000">
+			</p>
+			<p>
+				<label for="mail">Ваш email:</label><br><br>
+				<input type="email" id="mail" name=userMail><br>
+				
+			</p>
+			<p>
+				<label for="city">Ваш город:</label><br><br>
+				<select type="text" id="city" name=userCity>
+					<option disabled selected>Выберите город</option>
+				</select>
+			</p>		
+			<p>
+				Сообщение<br><br>				
+				<textarea name=messageText placeholder="Текст"></textarea>		
+			</p>
+			<div id="dialog"></div>			
+			<p><input type="submit" value="Отправить письмо" onclick="verify()"></p>		
+		</fieldset>
+	</form>
+	<br>	
+</body>
+</html>
