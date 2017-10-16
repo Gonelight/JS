@@ -24,8 +24,8 @@ gulp.task('cssconcat', ['sass-compile'], function () {
   return gulp.src('app/styles/*.css')
     .pipe(plumber())  	
   	.pipe(smaps.init()) //зачем нужно?
-    	.pipe(concat('total.css'))
-      .pipe(cssmin({compatibility: 'ie8'})) //вернго писать именнго в таком пояркде? 
+      .pipe(concat('total.css'))
+      .pipe(cssmin({compatibility: 'ie8'})) //верно писать именно в таком порядке? 
     .pipe(smaps.write('maps'))    
     .pipe(gulp.dest('dist/styles'));
 });
@@ -41,7 +41,7 @@ gulp.task('jsconcat', function() {
   return gulp.src('app/js/*.js')
     .pipe(plumber())  
   	.pipe(smaps.init())
-    	.pipe(concat('total.js')) //вернго писать именнго в таком пояркде? 
+	  .pipe(concat('total.js')) //верно писать именно в таком порядке? 
       .pipe(uglify()) 
     .pipe(smaps.write('maps'))    
     .pipe(gulp.dest('dist/js'));
