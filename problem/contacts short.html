@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Cute shop</title>
+	<style>
+		#slider {
+			width: 400px;
+		}
+	</style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<script>
+	function verify() {
+		var tel = document.getElementById("tel");
+		$( "#tel" ).effect( "bounce", { times: 3 }, {distance: 1}, "slow" );			
+	}	
+
+</script>
+<body>
+	<form action="#" method="get">
+		<fieldset>
+			<legend>Обратная связь</legend>		
+
+			<p>
+				<label for="name">Ваше имя:</label><br><br>
+				<input type="text" id="name" name=userName>				
+			</p>
+			<p>
+				<label for="tel">Ваш телефон:</label><br><br>
+				<input type="text" id="tel" name=phone placeholder="+7(000)000-0000">
+			</p>		
+			<p><input type="submit" value="Отправить письмо" onclick="verify()"></p>		
+		</fieldset>
+	</form>
+	<br>	
+</body>
+</html>
